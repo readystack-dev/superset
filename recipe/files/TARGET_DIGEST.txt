@@ -1,0 +1,8 @@
+image_manifest_digest=sha256:5f1c49705b9a126176932250c627120385196198b53fd25d6ccd4cd3903e32c9
+config_digest=sha256:adce931b49aead330adac207f70b2c594eb67a97272ae3f5211b39633b8045c8
+tag=readystack/superset:6.1.0-CE-ubuntu24.04-r8
+probe_port=8088
+probe_path=/health
+probe_timeout=900
+verify_boot=skip
+verify_boot_reason=this image needs db (not part of this archive); boot it with your own services as the admin handbook describes

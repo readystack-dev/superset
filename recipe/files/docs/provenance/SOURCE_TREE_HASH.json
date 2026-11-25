@@ -1,0 +1,9 @@
+{
+  "schema": "kitforge.source_tree_hash.v1",
+  "slug": "superset",
+  "repo": "https://github.com/apache/superset",
+  "ref": "6.1.0",
+  "commit": "c83fb2bb1dcfac41ac51bcebd82471f4a7180d18",
+  "tree_listing_sha256": "33f51912dbfeb76ed01a8c9bf599cc0c10ff67821868c648e64c0fdf32737ae9",
+  "file_count": 7493
+}

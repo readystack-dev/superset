@@ -1,0 +1,341 @@
+{
+  "apt_refresh": [
+    {
+      "min_version": "2.8.4ubuntu0.1",
+      "package": "apt",
+      "reason": "CVE-2026-109518: apt 2.8.3 -> 2.8.4ubuntu0.1"
+    },
+    {
+      "min_version": "2.8.4ubuntu0.1",
+      "package": "libapt-pkg6.0t64",
+      "reason": "CVE-2026-109518: libapt-pkg6.0t64 2.8.3 -> 2.8.4ubuntu0.1"
+    },
+    {
+      "min_version": "10.42-4ubuntu2.2",
+      "package": "libpcre2-8-0",
+      "reason": "CVE-2026-103111, CVE-2026-86145, CVE-2026-89156, CVE-2026-89157 \u2026: libpcre2-8-0 10.42-4ubuntu2.1 -> 10.42-4ubuntu2.2"
+    },
+    {
+      "min_version": "0.10.6-2ubuntu0.6",
+      "package": "libssh-4",
+      "reason": "USN-9187-1: libssh-4 0.10.6-2ubuntu0.5 -> 0.10.6-2ubuntu0.6"
+    }
+  ],
+  "build_method": "source-rebuild-python",
+  "chain_id": 1213,
+  "dep_bumps": [
+    {
+      "module": "pillow",
+      "to": "13.0.0",
+      "why": "11.3.0 (base.txt) -> 13.0.0: GHSA-8g5g-8vmr-9782 (C) and six highs (GHSA-58r4-6rv3-gfh8, -pchr-8j38-3x4p, -c6hw-5grf-ff96, -65qm-jvmh-6pqg, -p4wg-p73j-c528, -q45j-58j2-45rg) plus two mediums, all fixed only in 13.0.0 (2026-10-16), and the 13 highs fixed in 12.1.1-12.3.0. Crosses apache-superset 6.1.0's Pillow<13: widened by wheel_requires_overrides (tested); master pins 13.0.0."
+    },
+    {
+      "module": "cryptography",
+      "to": "50.0.2",
+      "why": "46.0.5 -> 50.0.2: GHSA-g6cj-pr64-35w5 (H, 50.0.0), GHSA-jwv3-5hgf-82ww (H, 49.0.0), GHSA-537c-gmf6-5ccf (H, 48.0.1), GHSA-m2h6-j472-rp4c (M), GHSA-p423-j2cm-9vmq (M). Crosses apache-superset 6.1.0's cryptography<47: widened by wheel_requires_overrides (tested); master requires >=50.0.2,<51."
+    },
+    {
+      "module": "pyopenssl",
+      "to": "26.4.0",
+      "why": "25.3.0 -> 26.4.0: 1 high + 1 low fixed in 26.0.0, and 26.4.0 is the release that admits cryptography 50 (cryptography>=49,<51; 26.0.0 required <47). Master pins 26.4.0."
+    },
+    {
+      "module": "pyarrow",
+      "to": "23.0.1",
+      "why": "16.1.0 -> 23.0.1: GHSA-rgxp-2hwp-jwgg (H, fixed 23.0.1). Crosses apache-superset 6.1.0's pyarrow<19: widened by wheel_requires_overrides to >=23.0.1,<24, the lowest fixed line, to stay closest to the pandas 2.1.4 / numpy 1.26.4 the release pins (tested)."
+    },
+    {
+      "module": "msgpack",
+      "to": "1.2.3",
+      "why": "1.0.8 -> 1.2.3: GHSA-6v7p-g79w-8964 (H, fixed 1.2.1). Crosses apache-superset 6.1.0's msgpack<1.1: widened by wheel_requires_overrides (tested); master requires >=1.2.3,<1.3."
+    },
+    {
+      "module": "certifi",
+      "to": "2026.10.19",
+      "why": "2025.6.15 -> 2026.10.19: GHSA-6q48-6c7w-9gw2 / PYSEC-2026-4320 (C, published 2026-10-20: emSign roots with compromised intermediate CA keys). requests and urllib3 only floor certifi; a date-versioned CA bundle with no API."
+    },
+    {
+      "module": "setuptools",
+      "to": "84.2.1",
+      "why": "80.9.0 -> 84.2.1: GHSA-h35f-9h28-mq5c (M, fixed 83.0.0). setuptools 83 removed pkg_resources; nothing in the 159-package closure needs it at runtime: the five modules that mention it (babel.messages._compat, pytz.open_resource, wrapt.importer, werkzeug.testapp, a click_plugins docstring) all import it inside try/except ImportError, and no other module imports setuptools or distutils outside build helpers (grep of the installed set, 2026-10-22)."
+    },
+    {
+      "module": "pyjwt",
+      "to": "2.15.1",
+      "why": "2.10.1 -> 2.15.1: 1 critical + 4 high + 9 medium GHSAs; superset allows PyJWT<3."
+    },
+    {
+      "module": "urllib3",
+      "to": "2.8.0",
+      "why": "2.6.3 -> 2.8.0: 4 high + 1 medium; base.in caps <3.0."
+    },
+    {
+      "module": "pyasn1",
+      "to": "0.6.5",
+      "why": "GHSA-2qm8-x737-gmw5, GHSA-9m75-vc3g-4x39, GHSA-fm9c-5rcf-2q5p, GHSA-mm57-4v3p-rchx: pyasn1 0.6.4 -> 0.6.5 (was 0.6.4)"
+    },
+    {
+      "module": "mako",
+      "to": "1.4.3",
+      "why": "1.3.10 -> 1.4.3: 2 high + 1 medium (fixed 1.3.11/1.3.12/1.4.2)."
+    },
+    {
+      "module": "markdown",
+      "to": "3.8.2",
+      "why": "3.8 -> 3.8.2: GHSA-5wmx-573v-2qwq (M); stays in the 3.8 line."
+    },
+    {
+      "module": "idna",
+      "to": "3.20",
+      "why": "3.10 -> 3.20: GHSA-65pc-fj4g-8rjx (M)."
+    },
+    {
+      "module": "werkzeug",
+      "to": "3.1.9",
+      "why": "3.1.6 -> 3.1.9: GHSA-g6x2-hccm-hh4m (M); flask 2.3.3 needs Werkzeug>=2.3.7."
+    },
+    {
+      "module": "python-dotenv",
+      "to": "1.2.4",
+      "why": "1.1.0 -> 1.2.4: GHSA-mf9w-mj56-hr94 (M)."
+    },
+    {
+      "module": "geopy",
+      "to": "2.5.0",
+      "why": "2.4.1 -> 2.5.0: GHSA-mhvh-fq92-pfmr (M)."
+    },
+    {
+      "module": "requests",
+      "to": "2.33.1",
+      "why": "2.32.4 -> 2.33.1: GHSA-gc5v-m9x4-r6x2 (M)."
+    },
+    {
+      "module": "brotli",
+      "to": "1.2.1",
+      "why": "CVE-2026-111497, GHSA-9v8h-qqgm-4m35: brotli 1.2.0 -> 1.2.1"
+    },
+    {
+      "module": "dnspython",
+      "to": "2.9.2",
+      "why": "GHSA-vvf4-9x63-8xvv (high): dnspython 2.9.0 -> 2.9.2 (OSV; on PyPI since 2026-11-03); planned by the re-release agenda, applied before G8 refuses the in-flight chain (was 2.9.0)"
+    }
+  ],
+  "expected_residuals": [],
+  "images": [
+    {
+      "digest": "sha256:9c7f200c07e3d4a03e7249d2c16bf66a51120fb876aa2242cf31451412543289",
+      "ref": "ubuntu:24.04",
+      "role": "base"
+    }
+  ],
+  "mod_replaces": [],
+  "runtime_packages": [
+    "ca-certificates",
+    "curl",
+    "tzdata",
+    "libpq5"
+  ],
+  "schema": "kitforge.toolchain_lock.v1",
+  "slug": "superset",
+  "source": {
+    "build_packages": [
+      "git",
+      "ca-certificates",
+      "curl",
+      "libpq-dev"
+    ],
+    "commit": "c83fb2bb1dcfac41ac51bcebd82471f4a7180d18",
+    "commit_epoch": 1777640555,
+    "extra_pip": [
+      "apache-superset-core==0.1.0rc3",
+      "psycopg2==2.9.13",
+      "alembic==1.15.2",
+      "amqp==5.3.1",
+      "annotated-types==0.7.0",
+      "apispec==6.6.1",
+      "apsw==3.50.1.0",
+      "async-timeout==4.0.3",
+      "attrs==25.3.0",
+      "babel==2.17.0",
+      "backoff==2.2.1",
+      "bcrypt==4.3.0",
+      "billiard==4.2.1",
+      "blinker==1.9.0",
+      "bottleneck==1.5.0",
+      "brotli==1.2.1",
+      "cachelib==0.13.0",
+      "cachetools==6.2.1",
+      "cattrs==25.1.1",
+      "celery==5.5.2",
+      "certifi==2026.10.19",
+      "cffi==2.0.0",
+      "charset-normalizer==3.4.2",
+      "click==8.2.1",
+      "click-didyoumean==0.3.1",
+      "click-option-group==0.5.7",
+      "click-plugins==1.1.1",
+      "click-repl==0.3.0",
+      "colorama==0.4.6",
+      "cron-descriptor==1.4.5",
+      "croniter==6.0.0",
+      "cryptography==50.0.2",
+      "defusedxml==0.7.1",
+      "deprecated==1.2.18",
+      "deprecation==2.1.0",
+      "dnspython==2.9.2",
+      "email-validator==2.2.0",
+      "et-xmlfile==2.0.0",
+      "filelock==3.20.3",
+      "flask==2.3.3",
+      "flask-appbuilder==5.0.2",
+      "flask-babel==3.1.0",
+      "flask-caching==2.3.1",
+      "flask-compress==1.17",
+      "flask-cors==6.0.2",
+      "flask-jwt-extended==4.7.1",
+      "flask-limiter==3.12",
+      "flask-login==0.6.3",
+      "flask-migrate==3.1.0",
+      "flask-session==0.8.0",
+      "flask-sqlalchemy==2.5.1",
+      "flask-talisman==1.1.0",
+      "flask-wtf==1.2.2",
+      "geographiclib==2.0",
+      "geopy==2.5.0",
+      "google-auth==2.43.0",
+      "greenlet==3.1.1",
+      "gunicorn==23.0.0",
+      "h11==0.16.0",
+      "hashids==1.3.1",
+      "holidays==0.82",
+      "humanize==4.12.3",
+      "idna==3.20",
+      "isodate==0.7.2",
+      "itsdangerous==2.2.0",
+      "jinja2==3.1.6",
+      "jsonpath-ng==1.7.0",
+      "jsonschema==4.23.0",
+      "jsonschema-specifications==2025.4.1",
+      "kombu==5.5.3",
+      "limits==5.1.0",
+      "mako==1.4.3",
+      "markdown==3.8.2",
+      "markdown-it-py==3.0.0",
+      "markupsafe==3.0.2",
+      "marshmallow==3.26.2",
+      "marshmallow-sqlalchemy==1.4.0",
+      "marshmallow-union==0.1.15",
+      "mdurl==0.1.2",
+      "msgpack==1.2.3",
+      "msgspec==0.19.0",
+      "nh3==0.2.21",
+      "numexpr==2.10.2",
+      "numpy==1.26.4",
+      "odfpy==1.4.1",
+      "openapi-schema-validator==0.6.3",
+      "openpyxl==3.1.5",
+      "ordered-set==4.1.0",
+      "outcome==1.3.0.post0",
+      "packaging==25.0",
+      "pandas==2.1.4",
+      "paramiko==3.5.1",
+      "parsedatetime==2.6",
+      "pgsanity==0.2.9",
+      "pillow==13.0.0",
+      "platformdirs==4.3.8",
+      "ply==3.11",
+      "polyline==2.0.2",
+      "prison==0.2.1",
+      "prompt-toolkit==3.0.51",
+      "pyarrow==23.0.1",
+      "pyasn1==0.6.5",
+      "pyasn1-modules==0.4.2",
+      "pycparser==2.22",
+      "pydantic==2.11.7",
+      "pydantic-core==2.33.2",
+      "pygeohash==3.2.2",
+      "pygments==2.19.1",
+      "pyjwt==2.15.1",
+      "pynacl==1.6.2",
+      "pyopenssl==26.4.0",
+      "pyparsing==3.2.3",
+      "pysocks==1.7.1",
+      "python-dateutil==2.9.0.post0",
+      "python-dotenv==1.2.4",
+      "pytz==2025.2",
+      "pyxlsb==1.0.10",
+      "pyyaml==6.0.2",
+      "redis==5.3.1",
+      "referencing==0.36.2",
+      "requests==2.33.1",
+      "requests-cache==1.2.1",
+      "rfc3339-validator==0.1.4",
+      "rich==13.9.4",
+      "rpds-py==0.25.0",
+      "rsa==4.9.1",
+      "selenium==4.32.0",
+      "setuptools==84.2.1",
+      "shillelagh==1.4.3",
+      "simplejson==3.20.1",
+      "six==1.17.0",
+      "slack-sdk==3.35.0",
+      "sniffio==1.3.1",
+      "sortedcontainers==2.4.0",
+      "sqlalchemy==1.4.54",
+      "sqlalchemy-utils==0.42.0",
+      "sqlglot==28.10.0",
+      "sshtunnel==0.4.0",
+      "tabulate==0.9.0",
+      "trio==0.30.0",
+      "trio-websocket==0.12.2",
+      "typing-extensions==4.15.0",
+      "typing-inspection==0.4.1",
+      "tzdata==2025.2",
+      "url-normalize==2.2.1",
+      "urllib3==2.8.0",
+      "vine==5.1.0",
+      "watchdog==6.0.0",
+      "wcwidth==0.2.13",
+      "websocket-client==1.8.0",
+      "werkzeug==3.1.9",
+      "wrapt==1.17.2",
+      "wsproto==1.2.0",
+      "wtforms==3.2.1",
+      "wtforms-json==0.3.5",
+      "xlrd==2.0.1",
+      "xlsxwriter==3.0.9",
+      "zstandard==0.23.0"
+    ],
+    "pip_install_spec": "apache-superset==6.1.0",
+    "pip_wheel_args": [
+      "--prefer-binary"
+    ],
+    "python_runtime": {
+      "provider": "ubuntu-source",
+      "sha256": "b5796915dc45ff745cfb4e990a7e7c93d6f546328a102ce31448d69ebc37575c",
+      "version": "3.12.16"
+    },
+    "python_version": "3.12",
+    "ref": "6.1.0",
+    "repo": "https://github.com/apache/superset",
+    "source_date_epoch": 1795543199,
+    "source_date_epoch_basis": "release-cut",
+    "source_date_epoch_provenance": "the time release 6.1.0-CE-ubuntu24.04-r8 was cut (2026-11-24T17:59:59Z), by scripts/rerelease-agenda.py: ReadyStack dates an image by when its release was packaged (owner 2026-11-10), recorded here once and used by every rebuild of the release; it builds upstream commit c83fb2bb1dcf, dated 2026-05-01T13:02:35Z (source.commit_epoch).",
+    "wheel_requires_overrides": [
+      {
+        "dist": "apache-superset",
+        "requires": {
+          "Pillow": ">=13.0.0,<14",
+          "cryptography": ">=50.0.2,<51",
+          "msgpack": ">=1.2.3,<1.3",
+          "pyarrow": ">=23.0.1,<24"
+        },
+        "sha256": "4b5886b2d6389a32df790aeae2532ad72529bce1af93b6edf2d1b2a8bf658748",
+        "version": "6.1.0",
+        "wheel": "apache_superset-6.1.0-py3-none-any.whl",
+        "why": "apache-superset 6.1.0 declares cryptography<47, Pillow<13, pyarrow<19 and msgpack<1.1, and the CVE fixes are only outside them: cryptography GHSA-g6cj-pr64-35w5 (H, fixed 50.0.0), GHSA-jwv3-5hgf-82ww (H, 49.0.0), GHSA-537c-gmf6-5ccf (H, 48.0.1), GHSA-m2h6-j472-rp4c (M); Pillow GHSA-8g5g-8vmr-9782 (C) and GHSA-58r4-6rv3-gfh8, -pchr-8j38-3x4p, -c6hw-5grf-ff96, -65qm-jvmh-6pqg, -p4wg-p73j-c528, -q45j-58j2-45rg (H), all fixed only in 13.0.0; pyarrow GHSA-rgxp-2hwp-jwgg (H, 23.0.1); msgpack GHSA-6v7p-g79w-8964 (H, 1.2.1). Upstream master has moved all four past these ceilings (cryptography>=50.0.2,<51; Pillow>=13.0.0,<14; pyarrow>=26,<27; msgpack>=1.2.3,<1.3). Each new range is bounded to the major (minor for msgpack) that was tested. TESTED 2026-10-22 on the controller, CPython 3.12, against upstream's own pins as the control (same 159-package set, only these libraries and their pyOpenSSL/certifi/setuptools neighbours different): Superset's own unit suite (tests/common + tests/unit_tests at the 6.1.0 tag, 5,070 tests: the same outcome for every test on both sets, 4,968 passing; the 76 failures and 22 errors are identical on both and come from optional modules the image does not ship -- fastmcp, the BigQuery/Trino/Presto drivers, prophet -- or from tests that read the source checkout) and a booted instance on PostgreSQL 16 driven through the REST API -- login, a database with an encrypted password, SQL Lab (250 rows of int/decimal/text/date/timestamp/timestamptz/array/json/bool/null, CSV export), a dataset, chart data as json/csv/xlsx and with pivot/rolling post-processing, a saved chart, a dashboard and its export, CSV upload -- gave identical results on both sets; in-process, SupersetResultSet (pyarrow), the Arrow IPC + msgpack results payload round trip, screenshot tiling, thumbnail resize and PDF building (Pillow), Fernet/EncryptedType, paramiko keys, sshtunnel and pyOpenSSL also matched. The code paths Superset uses (PIL Image.open/new/resize with Resampling.LANCZOS; pa.array/Table/ipc/parquet/ArrowSerializationError; msgpack dumps/loads with use_bin_type) exist unchanged in the new versions."
+      }
+    ]
+  },
+  "version": "6.1.0"
+}

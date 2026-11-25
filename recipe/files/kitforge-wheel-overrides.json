@@ -1,0 +1,15 @@
+[
+  {
+    "build_tag": "1readystack",
+    "dist": "apache-superset",
+    "requires": {
+      "Pillow": ">=13.0.0,<14",
+      "cryptography": ">=50.0.2,<51",
+      "msgpack": ">=1.2.3,<1.3",
+      "pyarrow": ">=23.0.1,<24"
+    },
+    "sha256": "4b5886b2d6389a32df790aeae2532ad72529bce1af93b6edf2d1b2a8bf658748",
+    "version": "6.1.0",
+    "wheel": "apache_superset-6.1.0-py3-none-any.whl"
+  }
+]
