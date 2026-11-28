@@ -16,16 +16,16 @@
     "context": ".",
     "dockerfile": "Dockerfile.offline.pinned",
     "mtime_policy": "clamp",
-    "source_date_epoch": 1795543199,
-    "tree_hash": "sha256:b371df8c7081500e82862f18afacf6cb476240c1774fbf0438d02f4525e3e5e3"
+    "source_date_epoch": 1795644313,
+    "tree_hash": "sha256:08a89759b2f0ff1c34d55a612f7c96d0760e9ee8812af8eb57e7083eea74a8d7"
   },
   "probe": {
     "skip": "this image needs db (not part of this archive); boot it with your own services as the admin handbook describes"
   },
   "schema": "readystack-rebuild-bundle/v0.1",
   "subject": {
-    "config_digest": "sha256:adce931b49aead330adac207f70b2c594eb67a97272ae3f5211b39633b8045c8",
-    "image_manifest_digest": "sha256:5f1c49705b9a126176932250c627120385196198b53fd25d6ccd4cd3903e32c9",
-    "name": "docker.io/readystack/superset:6.1.0-CE-ubuntu24.04-r8"
+    "config_digest": "sha256:66eceb0cd5587050a56afacf6ae7cf9ee4201302c441549723eb45ff3ac40448",
+    "image_manifest_digest": "sha256:b665af892ef3fbbcad19298f805fdce0d6783ed1eac1809908d7e62fff8f1007",
+    "name": "docker.io/readystack/superset:6.1.0-CE-ubuntu24.04-r9"
   }
 }

@@ -6,13 +6,13 @@
 
 # Apache Superset: ReadyStack build kit
 
-The offline build kit for the Docker image `readystack/superset:6.1.0-CE-ubuntu24.04-r8`. It holds what the image is built from (upstream source, base images, toolchain, pinned dependencies) and the documents, so the image can be rebuilt with no network access (`docker build --network=none`).
+The offline build kit for the Docker image `readystack/superset:6.1.0-CE-ubuntu24.04-r9`. It holds what the image is built from (upstream source, base images, toolchain, pinned dependencies) and the documents, so the image can be rebuilt with no network access (`docker build --network=none`).
 
-- Release: [6.1.0-CE-ubuntu24.04-r8](https://github.com/readystack-dev/superset/releases/tag/6.1.0-CE-ubuntu24.04-r8)
-- Image: [`docker.io/readystack/superset:6.1.0-CE-ubuntu24.04-r8`](https://hub.docker.com/r/readystack/superset/tags), manifest digest `sha256:5f1c49705b9a126176932250c627120385196198b53fd25d6ccd4cd3903e32c9`
+- Release: [6.1.0-CE-ubuntu24.04-r9](https://github.com/readystack-dev/superset/releases/tag/6.1.0-CE-ubuntu24.04-r9)
+- Image: [`docker.io/readystack/superset:6.1.0-CE-ubuntu24.04-r9`](https://hub.docker.com/r/readystack/superset/tags), manifest digest `sha256:b665af892ef3fbbcad19298f805fdce0d6783ed1eac1809908d7e62fff8f1007`
 - Product page: https://readystack.dev/products/superset
 - Source and build recipe: https://readystack.dev/products/superset/recipe
-- Build trail: https://readystack.dev/products/superset/trail/6.1.0-CE-ubuntu24.04-r8
+- Build trail: https://readystack.dev/products/superset/trail/6.1.0-CE-ubuntu24.04-r9
 - Defects: this repository's Issues (defects recorded from 25 November 2026 on) and https://readystack.dev/defects.html?product=superset
 
 ## The image
@@ -31,12 +31,12 @@ From the upstream project's own description: https://github.com/apache/superset.
 
 ## This release
 
-- Docker Scout policy grade at release: **A** (94%), graded 2026-11-24 with `docker scout policy` (CLI 1.26.0, docker-default configuration).
+- Docker Scout policy grade at release: **A** (94%), graded 2026-11-28 with `docker scout policy` (CLI 1.26.0, docker-default configuration).
   - Docker Scout counts 102 packages with copyleft licences (GPL, LGPL, MPL), 101 of them operating-system packages (it counts only packages whose licence it can read; the SBOM lists every component).
 - Signed with ReadyStack's release key (fingerprint `04daa92344a52dbc`): https://readystack.dev/keys/cosign.pub.
 - Runs as a non-root user (`superset`).
 - Attestations on the image: an SPDX SBOM and SLSA provenance v1.
-- Rebuilt from this kit with network egress blocked on 2026-11-24; the rebuilt image digest is the published one.
+- Rebuilt from this kit with network egress blocked on 2026-11-28; the rebuilt image digest is the published one.
 - Base: Ubuntu 24.04.
 
 The current grade, measured again every day, is on https://readystack.dev/products/superset.
@@ -45,7 +45,7 @@ Apache Superset is distributed under its upstream licence (Apache-2.0); the kit 
 
 ## Download
 
-From the [6.1.0-CE-ubuntu24.04-r8 release](https://github.com/readystack-dev/superset/releases/tag/6.1.0-CE-ubuntu24.04-r8): `ReadyStack-superset-6.1.0-CE-ubuntu24.04-r8.tar.gz` (794.2 MB), SHA-256 `543168d0cd63f0ec478f892c4bfa34ad8e41ca2d0a3f14b3318b0a34b09579ef`.
+From the [6.1.0-CE-ubuntu24.04-r9 release](https://github.com/readystack-dev/superset/releases/tag/6.1.0-CE-ubuntu24.04-r9): `ReadyStack-superset-6.1.0-CE-ubuntu24.04-r9.tar.gz` (794.2 MB), SHA-256 `926a08ec4b8845b54be6624f42a82c1c3538acad5e7c7260fa3430bcc60fe488`.
 
 ```sh
 sha256sum --check --ignore-missing SHA256SUMS
@@ -57,18 +57,18 @@ The rebuild statement is signed with the ReadyStack release key. Check the signa
 
 ```sh
 cosign verify-blob --key https://readystack.dev/keys/cosign.pub \
-  --bundle ReadyStack-superset-6.1.0-CE-ubuntu24.04-r8.rebuild.json.sigstore ReadyStack-superset-6.1.0-CE-ubuntu24.04-r8.rebuild.json
+  --bundle ReadyStack-superset-6.1.0-CE-ubuntu24.04-r9.rebuild.json.sigstore ReadyStack-superset-6.1.0-CE-ubuntu24.04-r9.rebuild.json
 ```
 
 Unpack with `-p` so file modes are kept, then follow the kit's own README.md and docs/REBUILD.md:
 
 ```sh
-tar -xpzf ReadyStack-superset-6.1.0-CE-ubuntu24.04-r8.tar.gz
-cd 6.1.0-CE-ubuntu24.04-r8
+tar -xpzf ReadyStack-superset-6.1.0-CE-ubuntu24.04-r9.tar.gz
+cd 6.1.0-CE-ubuntu24.04-r9
 less README.md docs/REBUILD.md
 ```
 
-The build trail (`ReadyStack-superset-6.1.0-CE-ubuntu24.04-r8.trail.json`, signed the same way, and its Markdown copy) records how this release was built and checked.
+The build trail (`ReadyStack-superset-6.1.0-CE-ubuntu24.04-r9.trail.json`, signed the same way, and its Markdown copy) records how this release was built and checked.
 
 ## This repository
 

@@ -16,7 +16,7 @@ RUN apt-get update && apt-get -y --download-only --no-install-recommends install
       build-essential pkg-config xz-utils libssl-dev zlib1g-dev libbz2-dev libsqlite3-dev libffi-dev liblzma-dev libzstd-dev uuid-dev libexpat1-dev libncurses-dev libreadline-dev && \
     mkdir -p /debs && (cp /var/cache/apt/archives/*.deb /debs/ 2>/dev/null || true) && echo "vendored $(ls -1 /debs/*.deb 2>/dev/null | wc -l) CPython build debs"
 FROM ubuntu:24.04@sha256:9c7f200c07e3d4a03e7249d2c16bf66a51120fb876aa2242cf31451412543289 AS cpython
-ARG SOURCE_DATE_EPOCH=1795543199
+ARG SOURCE_DATE_EPOCH=1795644313
 ENV SOURCE_DATE_EPOCH=${SOURCE_DATE_EPOCH}
 COPY --from=cpython-debs /debs /tmp/cpython-debs
 COPY --from=cpython-src /vendored-python/Python-3.12.16.tar.xz /tmp/Python-3.12.16.tar.xz

@@ -5,7 +5,7 @@
 # build debs, by the same command the vendor stage ran; linked against Ubuntu's libraries (debs the scan
 # sees, apt fixes). The runtime takes /usr/local from this stage and none of the toolchain.
 FROM ubuntu:24.04@sha256:9c7f200c07e3d4a03e7249d2c16bf66a51120fb876aa2242cf31451412543289 AS cpython
-ARG SOURCE_DATE_EPOCH=1795543199
+ARG SOURCE_DATE_EPOCH=1795644313
 ENV SOURCE_DATE_EPOCH=${SOURCE_DATE_EPOCH}
 COPY vendored/python/debs/ /tmp/cpython-debs/
 COPY vendored/python/Python-3.12.16.tar.xz /tmp/Python-3.12.16.tar.xz
@@ -44,7 +44,7 @@ RUN --mount=type=bind,source=vendored/debs,target=/tmp/debs \
     ldconfig && \
     rm -rf /var/lib/apt/lists/* \
            /var/log/dpkg.log /var/log/alternatives.log /var/log/apt /var/cache/ldconfig/aux-cache /var/cache/fontconfig
-ARG SOURCE_DATE_EPOCH=1795543199
+ARG SOURCE_DATE_EPOCH=1795644313
 RUN groupadd -r superset && useradd -r -g superset -d /var/lib/superset -m superset && \
     mkdir -p /var/lib/superset /etc/superset && chown -R superset:superset /var/lib/superset /etc/superset && \
     : "${SOURCE_DATE_EPOCH:?SOURCE_DATE_EPOCH must be set for a reproducible build}" && \
@@ -55,15 +55,19 @@ COPY superset-entrypoint.sh /usr/local/bin/superset-entrypoint.sh
 COPY superset_config.py /etc/superset/superset_config.py
 RUN rm -rf /usr/local/lib/python3.12/site-packages/pip /usr/local/lib/python3.12/site-packages/pip-*.dist-info /usr/local/bin/pip /usr/local/bin/pip3 /usr/local/bin/pip3.12; chown -R superset:superset /var/lib/superset /usr/local; chown superset:superset /usr/local/bin/superset-entrypoint.sh; chown superset:superset /etc/superset/superset_config.py; chmod 0755 /usr/local/bin/superset-entrypoint.sh; chmod 0644 /etc/superset/superset_config.py
 LABEL org.opencontainers.image.title="Apache Superset"
-LABEL org.opencontainers.image.version="6.1.0-CE-ubuntu24.04-r8"
+LABEL org.opencontainers.image.version="6.1.0-CE-ubuntu24.04-r9"
 LABEL org.opencontainers.image.licenses="Apache-2.0"
-LABEL org.opencontainers.image.source="https://github.com/apache/superset"
+LABEL org.opencontainers.image.source="https://github.com/readystack-dev/superset"
 LABEL org.opencontainers.image.description="Apache Superset, the Apache-2.0 data exploration and visualization platform"
 LABEL org.opencontainers.image.vendor="ReadyStack.dev"
 LABEL readystack.product="superset"
 LABEL readystack.edition="CE"
 LABEL readystack.build_method="source-rebuild-python"
 LABEL org.opencontainers.image.revision="c83fb2bb1dcfac41ac51bcebd82471f4a7180d18"
+LABEL readystack.upstream.source="https://github.com/apache/superset"
+LABEL org.opencontainers.image.url="https://readystack.dev/products/superset"
+LABEL org.opencontainers.image.documentation="https://github.com/readystack-dev/superset#readme"
+LABEL org.opencontainers.image.authors="ReadyStack <contact@readystack.dev>"
 HEALTHCHECK --interval=10s --timeout=900s --start-period=180s \
   CMD curl -fsS --max-time 10 -o /dev/null http://127.0.0.1:8088/health || exit 1
 USER superset

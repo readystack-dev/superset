@@ -19,10 +19,35 @@
       "min_version": "0.10.6-2ubuntu0.6",
       "package": "libssh-4",
       "reason": "USN-9187-1: libssh-4 0.10.6-2ubuntu0.5 -> 0.10.6-2ubuntu0.6"
+    },
+    {
+      "min_version": "2.6.1-2ubuntu0.7",
+      "package": "libexpat1",
+      "reason": "USN-9196-1: libexpat1 2.6.1-2ubuntu0.6 -> 2.6.1-2ubuntu0.7"
+    },
+    {
+      "min_version": "1.20.1-6ubuntu2.12",
+      "package": "libgssapi-krb5-2",
+      "reason": "CVE-2026-107364, CVE-2026-107708, CVE-2026-107778, CVE-2026-107884 \u2026: libgssapi-krb5-2 1.20.1-6ubuntu2.10 -> 1.20.1-6ubuntu2.12"
+    },
+    {
+      "min_version": "1.20.1-6ubuntu2.12",
+      "package": "libk5crypto3",
+      "reason": "CVE-2026-107364, CVE-2026-107708, CVE-2026-107778, CVE-2026-107884 \u2026: libk5crypto3 1.20.1-6ubuntu2.10 -> 1.20.1-6ubuntu2.12"
+    },
+    {
+      "min_version": "1.20.1-6ubuntu2.12",
+      "package": "libkrb5-3",
+      "reason": "CVE-2026-107364, CVE-2026-107708, CVE-2026-107778, CVE-2026-107884 \u2026: libkrb5-3 1.20.1-6ubuntu2.10 -> 1.20.1-6ubuntu2.12"
+    },
+    {
+      "min_version": "1.20.1-6ubuntu2.12",
+      "package": "libkrb5support0",
+      "reason": "CVE-2026-107364, CVE-2026-107708, CVE-2026-107778, CVE-2026-107884 \u2026: libkrb5support0 1.20.1-6ubuntu2.10 -> 1.20.1-6ubuntu2.12"
     }
   ],
   "build_method": "source-rebuild-python",
-  "chain_id": 1213,
+  "chain_id": 1276,
   "dep_bumps": [
     {
       "module": "pillow",
@@ -318,9 +343,9 @@
     "python_version": "3.12",
     "ref": "6.1.0",
     "repo": "https://github.com/apache/superset",
-    "source_date_epoch": 1795543199,
+    "source_date_epoch": 1795644313,
     "source_date_epoch_basis": "release-cut",
-    "source_date_epoch_provenance": "the time release 6.1.0-CE-ubuntu24.04-r8 was cut (2026-11-24T17:59:59Z), by scripts/rerelease-agenda.py: ReadyStack dates an image by when its release was packaged (owner 2026-11-10), recorded here once and used by every rebuild of the release; it builds upstream commit c83fb2bb1dcf, dated 2026-05-01T13:02:35Z (source.commit_epoch).",
+    "source_date_epoch_provenance": "the time release 6.1.0-CE-ubuntu24.04-r9 was cut (2026-11-25T22:05:13Z), by scripts/rerelease-agenda.py: ReadyStack dates an image by when its release was packaged (owner 2026-11-10), recorded here once and used by every rebuild of the release; it builds upstream commit c83fb2bb1dcf, dated 2026-05-01T13:02:35Z (source.commit_epoch).",
     "wheel_requires_overrides": [
       {
         "dist": "apache-superset",
